@@ -845,7 +845,7 @@ def load_array_txt(filename, ephemdir='ephemeris'):
                 elif sitename[0] == '-':
                     print("Will attempt to use spiceypy ephemeris!")
                     print("Hunting for leap second kernel in ephemeris directory.")
-                    tlss = glob(path+'/'+ephemdir+'/*tls')                
+                    tlss = sorted(glob(path+'/'+ephemdir+'/*tls'))            
                     print("Found "+str(len(tlss))+", using "+tlss[-1])
                     sp.furnsh(tlss[-1])
                     ephemname = sitename.split(':')[-1]
